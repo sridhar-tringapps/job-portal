@@ -1,0 +1,43 @@
+<% if user_signed_in? %>
+<h1 class="text-center ">Jobs</h1>
+<table class="table table-bordered">
+<thead class='bg-success text-light text-center'>
+  <tr>
+    <th>Role</th>
+    <th>Description</th>
+    <th>Count</th>
+    <th>Apply</th>
+  </tr>
+</thead>
+<tbody >
+<% @jobs.each do |job| %>
+  <tr>
+    <td><%= job.role %></td>
+    <td><%= job.description %></td>
+    <td><%= job.count %></td>
+    <% if job.has_applied?(current_user,job.id) %>
+      <td><%= button_to "Applied" ,apply_path(job_id: job.id, job_role: job.role) ,class: "btn btn-primary" , disabled: true %></td>
+    <% else %>
+      <td><%= button_to "Apply" ,apply_path(job_id: job.id, job_role: job.role) ,method: "post" ,class: "btn btn-primary" %></td>
+    <% end %>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<%= link_to 'New Job', new_job_path %> 
+  <% else %>
+  <div class="text-center">
+  <h1>Welcome</h1>
+    <li class="btn btn-success">
+      <%= link_to 'Login', new_user_session_path , class:'nav-link text-light' %>
+    </li>
+
+    <li class="btn btn-info">
+      <%= link_to 'Sign up', new_user_registration_path , class:'nav-link text-light' %>
+    </li>
+    </div>
+<% end %>     
+
+
+
