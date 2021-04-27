@@ -1,21 +1,17 @@
-class Api::V1::JobsController < ApplicationController
+class Api::V1::JobsController < Api::ApplicationController
 
     def index
       jobs = Job.all
       render json: jobs, only: [:role, :description, :count], status: 200
     end
-  
+
     def create
-      job = Job.new(
-        id: job_params[:id],
-        role: job_params[:role],
-        description: job_params[:description],
-        count: job_params[:count]
-      )
-      if job.save
-        render json: job, status: 200
+      @job = Job.new(job_params)
+  
+      if @job.save
+        render json: @job, status: :created, location: @job
       else
-        render json: {error: "Error creating job"}
+        render json: @job.errors, status: :unprocessable_entity
       end
     end
   
@@ -27,26 +23,23 @@ class Api::V1::JobsController < ApplicationController
         render json: {error: "job not found"}
       end
     end
+
+    def update
+      if @job.update(job_params)
+        render json: @job
+      else
+        render json: @job.errors, status: :unprocessable_entity
+      end
+    end
   
     def destroy
-      @job = job.find(params[:id])
-      if @job
-        @job.destroy
-        render json: { message: 'job deleted sucessfully'},status: 200
-      else
-        render json: { error: 'Unable to delete'},status: 400
-      end
-  
+      @job.destroy
     end
   
   
     private
       def job_params
-        params.permit([
-          :role,
-          :description,
-          :count
-        ])
+      params.require(:job).permit(:role, :description, :count)
       end
   end
   
