@@ -16,7 +16,7 @@ class JobApplicationController < ApplicationController
     end
 
     def already_applied?
-        JobApplication.where(user_id: current_user.id, job_id:params[:job_id])exists?
+        JobApplication.where(user_id: current_user.id, job_id: params[:job_id])exists?
     end
 
     def find_job_application
