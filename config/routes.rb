@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post 'apply' => "jobs#apply"
 
 
-  post 'authenticate' => "authentication#authenticate"
-  get 'authenticate' => "authentication#authenticate"
+  post 'authenticate', to: 'authentication#authenticate'
+  get 'authenticate', to: 'authentication#authenticate'
  
 end
