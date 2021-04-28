@@ -5,7 +5,6 @@ class JobsController < ApplicationController
   # GET /jobs or /jobs.json
   def index
     @jobs = Job.all
-    authorize User
   end
 
   # GET /jobs/1 or /jobs/1.json
@@ -15,7 +14,6 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
-    authorize @user
   end
 
   # GET /jobs/1/edit
@@ -52,7 +50,6 @@ class JobsController < ApplicationController
 
   # DELETE /jobs/1 or /jobs/1.json
   def destroy
-    authorize @user
     @job.destroy
     respond_to do |format|
       format.html { redirect_to jobs_url, notice: "Job was successfully destroyed." }
