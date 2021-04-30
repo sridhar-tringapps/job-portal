@@ -20,13 +20,12 @@ class AuthorizeApiRequest
   
     def decoded_auth_token
       @decoded_auth_token ||= JsonWebToken.decode(http_auth_header)
-      console.log("decode",@decoded_auth_token)
+      # console.log("decode",@decoded_auth_token)
     end
   
     def http_auth_header
       if headers['Authorization'].present?
-        byebug
-      console.log("header",headers['Authorization'])
+      # console.log("header",headers['Authorization'])
         return headers['Authorization'].split(' ').last
       else
         errors.add(:token, 'Missing token')
