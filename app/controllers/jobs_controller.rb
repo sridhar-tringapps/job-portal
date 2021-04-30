@@ -22,7 +22,6 @@ class JobsController < ApplicationController
   # POST /jobs or /jobs.json
   def create
     @job = Job.new(job_params)
-    authorize @user
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: "Job was successfully created." }
@@ -64,6 +63,11 @@ class JobsController < ApplicationController
     @user = current_user
     puts current_user.email
     JobApplication.create(user_id: current_user.id, job_id: job_id)
+
+
+    JobMailer.new_job.deliver_later
+    flash[:notice] = "Congratulations! You have successfully applied" 
+  
 
     redirect_to jobs_url
   end
