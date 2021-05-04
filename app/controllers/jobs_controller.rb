@@ -55,11 +55,6 @@ class JobsController < ApplicationController
     end
   end
 
-  def recruit
-    @jobs = Job.all
-    authorize Job
-  end
-
   def apply
     puts current_user.id
     job_id = params[:job_id]

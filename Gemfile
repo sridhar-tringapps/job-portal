@@ -27,7 +27,6 @@ gem 'jwt'
 gem 'simple_command', '~> 0.0.9'
 gem "figaro"
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-gem "pundit"
 
 
 # Use Active Storage variant

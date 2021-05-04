@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'home/index'
-  post 'jobs/new'
-  post 'jobs/destroy'
   resources :jobs
   resources :job_applications
   devise_scope :user do
@@ -20,7 +18,6 @@ Rails.application.routes.draw do
     end
   end 
   post 'apply' => "jobs#apply"
-  get 'recruit' => "jobs#recruit"
   post 'authenticate', to: 'authentication#authenticate'
   get 'authenticate', to: 'authentication#authenticate'
 end
