@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
-
-
 <h1 class="text-center ">Jobs</h1>
+
+
+<% if current_user.role == 'user' %>
 <table class="table table-bordered">
 <thead class='bg-success text-light text-center'>
   <tr>
@@ -26,6 +27,32 @@
 <% end %>
 </tbody>
 </table>
+
+
+
+<% elsif current_user.role == 'admin' %>
+<table class="table table-bordered">
+<thead class='bg-success text-light text-center'>
+  <tr>
+    <th>Role</th>
+    <th>Description</th>
+    <th>Count</th>
+    <th>Delete</th>
+  </tr>
+</thead>
+<tbody >
+<% @jobs.each do |job| %>
+  <tr>
+    <td><%= job.role %></td>
+    <td><%= job.description %></td>
+    <td><%= job.count %></td>
+    <td><%= button_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger" %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<%= button_to "New" ,new_job_path ,class: "btn btn-primary" %>
+<% end %>
  
 
 
