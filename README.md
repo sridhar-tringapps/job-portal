@@ -27,6 +27,14 @@ The setups steps expect following tools installed on the system.
 git clone git@github.com:sridhar16899/job-portal.git
 ```
 
+#### 2. Installing the Gems
+
+Run the following command to install all the gemfile corresponding to the project
+
+```ruby
+bundle install
+```
+
 #### 3. Create and setup the database
 
 Run the following commands to create and setup the database.
