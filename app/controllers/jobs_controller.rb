@@ -1,6 +1,5 @@
 class JobsController < ApplicationController
   before_action :set_job, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
 
   # GET /jobs or /jobs.json
   def index
@@ -57,8 +56,8 @@ class JobsController < ApplicationController
   end
 
   def recruit
-    authorize Job
     @jobs = Job.all
+    authorize Job
   end
 
   def apply
@@ -68,11 +67,13 @@ class JobsController < ApplicationController
     puts job_id
     @user = current_user
     puts current_user.email
-    JobApplication.create(user_id: current_user.id, job_id: job_id, role: job_role, username: current_user.email)
+    JobApplication.create(user_id: current_user.id, job_id: job_id)
+
 
     JobMailer.new_job.deliver_later
     flash[:notice] = "Congratulations! You have successfully applied" 
   
+
     redirect_to jobs_url
   end
 

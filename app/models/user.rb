@@ -11,9 +11,8 @@ class User < ApplicationRecord
   enum role: [:user, :admin]
 
   after_initialize do
-    if self.new_record?
-      self.role ||= :user
-    end
+  if self.new_record?
+    self.role ||= :user
   end
-  
+  end
 end
