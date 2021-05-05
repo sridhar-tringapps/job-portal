@@ -1,4 +1,4 @@
-class JobPolicy < ApplicationPolicy
+class JobApplicationPolicy < ApplicationPolicy
     attr_reader :current_user, :user
   
     def initialize(current_user, user)
@@ -7,7 +7,7 @@ class JobPolicy < ApplicationPolicy
     end
   
     def index?
-        @current_user.admin? or @current_user.user?
+        @current_user.admin? 
     end
     def create?
       @current_user.admin?
