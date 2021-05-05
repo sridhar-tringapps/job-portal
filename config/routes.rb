@@ -19,7 +19,10 @@ Rails.application.routes.draw do
       resources :jobs
     end
   end 
+  
+  post 'edit' => "jobs#edit"
   post 'apply' => "jobs#apply"
+  get 'applied' => "job_application#index"
   post 'authenticate', to: 'authentication#authenticate'
   get 'authenticate', to: 'authentication#authenticate'
 end
