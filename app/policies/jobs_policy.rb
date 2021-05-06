@@ -15,6 +15,9 @@ class JobPolicy < ApplicationPolicy
     def new?
       create?
     end
+    def apply?
+      @current_user.user?
+    end
     def update?
       @current_user.admin?
     end
