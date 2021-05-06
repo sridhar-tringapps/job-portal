@@ -33,7 +33,8 @@
       <th>Role</th>
       <th>Description</th>
       <th>Count</th>
-      <th>Apply</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody >
@@ -42,6 +43,7 @@
       <td><%= job.role %></td>
       <td><%= job.description %></td>
       <td><%= job.count %></td>
+      <td><%= link_to 'Edit', edit_job_path(job) ,class: "btn btn-info" %></td>
       <td><%= button_to "Destroy" ,jobs_destroy_path ,method: "post" ,class: "btn btn-danger" %></td>
     </tr>
   <% end %>
