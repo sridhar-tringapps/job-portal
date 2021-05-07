@@ -62,7 +62,7 @@ class JobsController < ApplicationController
     puts job_id
     @user = current_user
     puts current_user.email
-    JobApplication.create(user_id: current_user.id, job_id: job_id)
+    JobApplication.create(user_id: current_user.id, job_id: job_id, role: job_role, username: current_user.email)
 
 
     JobMailer.new_job.deliver_later
