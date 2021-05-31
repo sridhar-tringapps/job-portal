@@ -1,0 +1,32 @@
+.body{
+    background-color: floralwhite;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+div{
+    font-size: 17px;
+}
+
+h2{
+    font-weight:bolder;
+    color: ghostwhite;
+}
+.card{
+    border: 0px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: 2px 7px 11px 5px rgba(0,0,0,0.46);
+    -webkit-box-shadow: 2px 7px 11px 5px rgba(0,0,0,0.46);
+    -moz-box-shadow: 2px 7px 11px 5px rgba(0,0,0,0.46);
+}
+
+.card-header{
+    background-color:dodgerblue;
+    text-align: center;
+    padding:20px;
+}
+
+.card-footer{
+    text-align: center;
+}
