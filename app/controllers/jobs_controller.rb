@@ -3,7 +3,7 @@ class JobsController < ApplicationController
 
   # GET /jobs or /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = Job.all.includes([:job_applications])
   end
 
   # GET /jobs/1 or /jobs/1.json
@@ -62,12 +62,11 @@ class JobsController < ApplicationController
     puts job_id
     @user = current_user
     puts current_user.email
-    JobApplication.create(user_id: current_user.id, job_id: job_id, role: job_role, username: current_user.email)
-
+    puts current_user.name
+    JobApplication.create(user_id: current_user.id, job_id: job_id, role: job_role, username: current_user.name)
 
     JobMailer.new_job.deliver_later
     flash[:notice] = "Congratulations! You have successfully applied" 
-  
 
     redirect_to jobs_url
   end
@@ -80,6 +79,6 @@ class JobsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def job_params
-      params.require(:job).permit(:role, :description, :count)
+      params.require(:job).permit(:id, :role, :description, :count)
     end
 end

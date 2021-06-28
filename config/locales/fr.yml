@@ -1,0 +1,29 @@
+fr:
+  login: "Connexion"
+  password: "Mot de passe"
+  forgot: "Mot de passe oublié?"
+  s-up: "S'inscrire"
+  s-in: "S'identifier"
+  s-out: "Se déconnecter"
+
+  shared:
+    header: 
+      home: "Domicile"
+      applicants: "Candidates"
+      
+  jobs:
+    index:
+      jobs: "Emplois"
+      role: "Rôle"
+      desc: "la description"
+      cnt: "Compter"
+      edt: "Éditer"
+      dlt: "Effacer"
+      njob: "Nouveau travail"
+
+  job_applications:
+    index:
+      jobs: "Emplois"
+      role: "Rôle"
+      mail: "Courrier de l'utilisateur"
+

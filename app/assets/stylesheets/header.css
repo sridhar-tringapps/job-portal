@@ -1,5 +1,5 @@
 .navbar{
-    background-color: dimgrey;
+    background-color:burlywood;
     padding: 10px;
     box-shadow: 2px 7px 11px 5px rgba(0,0,0,0.46);
     -webkit-box-shadow: 2px 7px 11px 5px rgba(0,0,0,0.46);
@@ -7,7 +7,7 @@
 }
 
 .nav-link:hover{
-    background-color: dimgrey;
+    background-color: burlywood;
 }
 .nav-link{
     margin-left: 10px;

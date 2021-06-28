@@ -27,6 +27,9 @@ gem 'jwt'
 gem 'simple_command', '~> 0.0.9'
 gem "figaro"
 gem "pundit"
+gem "elasticsearch", "~> 7.4" 
+gem 'elasticsearch-model'
+gem "typhoeus", "~> 1.3.1"
 
 
 # Use Active Storage variant
@@ -50,7 +53,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
+  gem 'bullet'
   gem "letter_opener", :group => :development
 end
 

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
+    before_action :set_locale
     before_action :authenticate_user!
 
     before_action :configure_permitted_parameters, if: :devise_controller?
@@ -9,6 +10,16 @@ class ApplicationController < ActionController::Base
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
     private
+
+    def set_locale
+      I18n.locale = params[:locale] || I18n.default_locale
+      # current_user.locale
+      # request.env["HTTP_ACCEPT_LANGUAGE"]
+    end
+
+    def default_url_options(options = {})
+      { locale: I18n.locale }.merge options
+    end
   
     def user_not_authorized
       flash[:alert] = "You are not authorized to perform this action."

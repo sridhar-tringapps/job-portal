@@ -1,11 +1,11 @@
 <% if current_user.role == 'user' %>
-  <h1 class="text-center ">Jobs</h1>
+  <h1 class="text-center "><%= t('.jobs') %></h1>
   <table class="table table-bordered">
   <thead class="text-light text-center">
     <tr>
-      <th>Role</th>
-      <th>Description</th>
-      <th>Count</th>
+      <th><%= t('role') %></th>
+      <th><%= t('.desc') %></th>
+      <th><%= t('.cnt') %></th>
       <th>Apply</th>
     </tr>
   </thead>
@@ -26,15 +26,16 @@
   </table>
 
 <% elsif current_user.role == 'admin' %>
-  <h1 class="text-center ">Jobs</h1>
+  <h1 class="text-center "><%= t('.jobs') %></h1>
   <table class="table table-bordered">
   <thead class='text-light text-center'>
     <tr>
-      <th>Role</th>
-      <th>Description</th>
-      <th>Count</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th><%= t('.role') %></th>
+      <th><%= t('.desc') %></th>
+      <th><%= t('.cnt') %></th>
+      <th><%= t('.edt') %></th>
+      <th><%= t('.dlt') %></th>
+      <th> </th> 
     </tr>
   </thead>
   <tbody >
@@ -43,11 +44,12 @@
       <td><%= job.role %></td>
       <td><%= job.description %></td>
       <td><%= job.count %></td>
-      <td><%= link_to 'Edit', edit_job_path(job) ,class: "btn btn-info text-light" %></td>
-      <td><%= button_to "Destroy" ,jobs_destroy_path ,method: "post" ,class: "btn btn-danger" %></td>
+      <td><%= link_to t('.edt'), edit_job_path(job) ,class: "btn btn-info text-light" %></td>
+      <td><%= link_to t('.dlt') ,jobs_destroy_path ,method: :delete ,data: { confirm: "Are you sure?" } ,class: "btn btn-danger text-light" %></td>
+      <td><%= job.job_applications.map(&:username) %></td>
     </tr>
   <% end %>
   </tbody>
   </table>
-    <%= button_to "New Job" ,new_job_path ,class: "btn new" %>
+    <%= button_to t('.njob') ,new_job_path ,class: "btn new" %>
 <% end %>

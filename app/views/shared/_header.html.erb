@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark ">
+<nav class="navbar navbar-expand-lg navbar-light ">
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
@@ -6,37 +6,61 @@
 
       <% if current_user.role == 'user' %>
         <li class="nav-item ">
-          <%= link_to 'Home', jobs_path , class:'nav-link' %>
+          <%= link_to t('shared.header.home'), jobs_path , class:'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Logout',  destroy_user_session_path,method: :delete , class:'nav-link' %>
+          <%= link_to t('s-out'),  destroy_user_session_path,method: :delete , class:'nav-link' %>
         </li>
+        
+        <%= content_tag :li do %>
+          <%= link_to "Switch to English" , locale: :en, class: "nav-link" %>
+        <% end unless current_page?(locale: :en) %>
+      
+        <%= content_tag :li do %>
+          <%= link_to "Switch to French" , locale: :fr,class: "nav-link" %>
+        <% end unless current_page?(locale: :fr) %>
 
       <% elsif current_user.role == 'admin' %>
         <li class="nav-item ">
-          <%= link_to 'Home', jobs_path , class:'nav-link' %>
+          <%= link_to t('shared.header.home'), jobs_path , class:'nav-link' %>
         </li>
         <li class="nav-item ">
-          <%= link_to 'Applicants', applied_path , class:'nav-link' %>
+          <%= link_to t('shared.header.applicants'), applied_path , class:'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Logout',  destroy_user_session_path,method: :delete , class:'nav-link' %>
+          <%= link_to t('s-out'),  destroy_user_session_path,method: :delete , class:'nav-link' %>
         </li>
+
+        <%= content_tag :li do %>
+          <%= link_to "Switch to English" , locale: :en, class: "nav-link" %>
+        <% end unless current_page?(locale: :en) %>
+      
+        <%= content_tag :li do %>
+          <%= link_to "Switch to French" , locale: :fr,class: "nav-link" %>
+        <% end unless current_page?(locale: :fr) %>
     <% end %>
 
     <% else %>
       <li class="nav-item">
-      <%= link_to 'Home', new_user_session_path , class:'nav-link' %>
+      <%= link_to t('shared.header.home'), new_user_session_path , class:'nav-link' %>
       </li>
 
       <li class="nav-item">
-      <%= link_to 'Sign in', new_user_session_path , class:'nav-link' %>
+      <%= link_to t('s-in'), new_user_session_path , class:'nav-link' %>
       </li>
   
       <li class="nav-item">
-          <%= link_to 'Sign up', new_user_registration_path , class:'nav-link' %>
+          <%= link_to t('s-up'), new_user_registration_path , class:'nav-link' %>
       </li>
+
+      <%= content_tag :li do %>
+        <%= link_to "Switch to English" , locale: :en, class: "nav-link" %>
+      <% end unless current_page?(locale: :en) %>
     
+      <%= content_tag :li do %>
+        <%= link_to "Switch to French" , locale: :fr,class: "nav-link" %>
+      <% end unless current_page?(locale: :fr) %>
+
     <% end %>
     </ul>
   </div>
