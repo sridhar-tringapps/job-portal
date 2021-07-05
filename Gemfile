@@ -35,6 +35,7 @@ gem 'sidekiq', '~> 4.1', '>= 4.1.2'
 gem 'simple_command', '~> 0.0.9'
 gem 'typhoeus', '~> 1.3.1'
 gem 'friendly_id'
+gem 'i18n'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
