@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -7,12 +9,9 @@ class User < ApplicationRecord
   has_many :job_applications
   has_many :jobs, through: :job_applications
 
-
-  enum role: [:user, :admin]
+  enum role: %i[user admin]
 
   after_initialize do
-    if self.new_record?
-      self.role ||= :user
-    end
+    self.role ||= :user if new_record?
   end
 end
