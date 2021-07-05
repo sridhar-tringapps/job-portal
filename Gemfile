@@ -30,6 +30,7 @@ gem "pundit"
 gem "elasticsearch", "~> 7.4" 
 gem 'elasticsearch-model'
 gem "typhoeus", "~> 1.3.1"
+gem 'i18n'
 
 
 # Use Active Storage variant
