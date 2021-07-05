@@ -36,6 +36,7 @@
       <th><%= t('.edt') %></th>
       <th><%= t('.dlt') %></th>
       <th> </th> 
+      <th> </th>
     </tr>
   </thead>
   <tbody >
@@ -47,6 +48,7 @@
       <td><%= link_to t('.edt'), edit_job_path(job) ,class: "btn btn-info text-light" %></td>
       <td><%= link_to t('.dlt') ,jobs_destroy_path ,method: :delete ,data: { confirm: "Are you sure?" } ,class: "btn btn-danger text-light" %></td>
       <td><%= job.job_applications.map(&:username) %></td>
+      <td><%= link_to 'Show', job %></td>
     </tr>
   <% end %>
   </tbody>
