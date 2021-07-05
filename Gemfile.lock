@@ -318,6 +318,7 @@ DEPENDENCIES
   elasticsearch-model
   figaro
   friendly_id
+  i18n
   jbuilder (~> 2.7)
   jwt
   letter_opener
