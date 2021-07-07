@@ -3,6 +3,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: %i[show edit update destroy]
 
+
   # GET /jobs or /jobs.json
   def index
     @jobs = Job.all.includes([:job_applications])
@@ -82,6 +83,6 @@ class JobsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def job_params
-    params.require(:job).permit(:id, :role, :description, :count)
+    params.require(:job).permit(:id, :role, :description, :count, :image)
   end
 end

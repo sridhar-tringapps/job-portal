@@ -4,8 +4,14 @@ class Job < ApplicationRecord
   has_many :job_applications
   has_many :users, through: :job_applications
 
+
+  mount_uploader :image, ImageUploader
+
   extend FriendlyId
   friendly_id :role, use: :slugged
+  def should_generate_new_friendly_id?
+    new_record?
+  end
 
   def has_applied?(user, job_id)
     @user = user.id

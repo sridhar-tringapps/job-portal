@@ -15,5 +15,10 @@
   <%= @job.count %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <img src="<%= @job.image %>">
+</p>
+
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>
