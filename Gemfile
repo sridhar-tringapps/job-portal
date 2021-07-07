@@ -33,20 +33,16 @@ gem 'pundit'
 gem 'rubocop', require: false
 gem 'sidekiq', '~> 4.1', '>= 4.1.2'
 gem 'simple_command', '~> 0.0.9'
-<<<<<<< HEAD
 gem "figaro"
 gem "pundit"
 gem "elasticsearch", "~> 7.4" 
 gem 'elasticsearch-model'
 gem "typhoeus", "~> 1.3.1"
 gem 'i18n'
-
-=======
 gem 'typhoeus', '~> 1.3.1'
 gem 'friendly_id'
 gem 'i18n'
 gem 'carrierwave'
->>>>>>> d4c45cf3e12080c35a211d4589c1f64dcb7a5679
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
